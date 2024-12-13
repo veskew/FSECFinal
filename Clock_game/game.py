@@ -22,10 +22,20 @@ ALLOWED_HOUR = 18
 show_error = False
 
 font = pygame.font.Font("./freedom/Freedom-10eM.ttf", 30)
-text_surface = font.render(
+text_surface1 = font.render(
     "You can only play this game between six and seven PM", True, color5
 )  # White text
-text_rect = text_surface.get_rect(center=(600, 400))  # Centered on the screen
+text_rect1 = text_surface1.get_rect(center=(600, 400))  # Centered on the screen
+
+text_surface2 = font.render(
+    "Start game", True, color3
+)  # White text
+text_rect2 = text_surface1.get_rect(center=(1010, 650))  # Centered on the screen
+
+text_surface3 = font.render(
+    "There is no game get pranked lol", True, color5
+)  # White text
+text_rect3 = text_surface1.get_rect(center=(600, 400))  # Centered on the screen
 
 run = True
 
@@ -36,15 +46,16 @@ while run is True:
     mouse_position = pygame.mouse.get_pos()
     current_time = datetime.datetime.now()
     current_hour = int(current_time.strftime("%H:%M:%S")[0:2])
-    object1 = pygame.Rect((500, 600), (200, 100))
+    object1 = pygame.Rect((450, 600), (300, 100))
     if show_error:
-        DISPLAYSURF.blit(text_surface, text_rect)
+        DISPLAYSURF.blit(text_surface1, text_rect1)
     rectangle_clicked = object1.collidepoint(mouse_position) and mouse_buttons[0]
     if rectangle_clicked and current_hour == ALLOWED_HOUR:
         run = False
     elif rectangle_clicked:
         show_error = True
     pygame.draw.rect(DISPLAYSURF, color4, object1)
+    DISPLAYSURF.blit(text_surface2, text_rect2)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
@@ -57,6 +68,7 @@ while True:
     DISPLAYSURF.blit(
         image, (200, 150)
     )  # (x, y) coordinates where you want to display the image
+    DISPLAYSURF.blit(text_surface3, text_rect3)
 
     for event in pygame.event.get():
         if event.type == QUIT:
