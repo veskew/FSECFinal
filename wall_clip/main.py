@@ -9,6 +9,13 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+# Text setup
+font = pygame.font.Font(".././Clock_game/freedom/Freedom-10eM.ttf", 30)
+text_surface1 = font.render(
+    "Use WASD to move and space for a boost", True, (0, 50, 100)
+)  # White text
+text_rect1 = text_surface1.get_rect(center=(SCREEN_WIDTH/2, 40))  # Centered on the screen
+
 # Player setup
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 player_size = 20
@@ -70,6 +77,7 @@ while running:
 
     # Draw player
     pygame.draw.rect(screen, player_color, player)
+    screen.blit(text_surface1, text_rect1)
 
     # Flip the display to put your work on screen
     pygame.display.flip()
