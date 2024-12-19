@@ -18,12 +18,12 @@ pygame.display.set_caption("Game")
 FPS = pygame.time.Clock()
 FPS.tick(60)
 
-ALLOWED_HOUR = 18
+ALLOWED_HOUR = 20
 show_error = False
 
 font = pygame.font.Font("./freedom/Freedom-10eM.ttf", 30)
 text_surface1 = font.render(
-    "You can only play this game between six and seven PM", True, color5
+    "You can only play this game between eight and nine PM", True, color5
 )  # White text
 text_rect1 = text_surface1.get_rect(center=(600, 400))  # Centered on the screen
 
